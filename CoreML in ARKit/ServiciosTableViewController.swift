@@ -121,7 +121,13 @@ class ServiciosTableViewController: UITableViewController {
         return cell
     }
     
+    func dismissAlert(alertAction: UIAlertAction) -> Void {}
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = UIAlertController(title: "Clover", message: "En unos momentos un agente se comunicará contigo.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: dismissAlert))
+        
+        present(alert, animated: true)
         let url = URL(string: "https://api.tropo.com/1.0/sessions?action=create&token=47746c754f6f746472676663556e6a77546c4b5450694b746c647777434f53655459465548625a5374485347&numberToDial=5215571083907&otherNumber=5212222938191&userName=Martin")
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             

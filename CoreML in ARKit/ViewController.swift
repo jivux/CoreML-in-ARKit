@@ -165,7 +165,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func insure(action: UIAlertAction) -> Void {
-        authenticateWitTouchId(product: latestPrediction) {}
+        authenticateWitTouchId(product: translateProduct(rawProduct: latestPrediction)) {}
     }
     
     func authenticateWitTouchId(product: String, onIdentify: @escaping () -> Void) {
@@ -196,7 +196,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             "monitor": Products.MacBook.rawValue,
             "digital watch": Products.Reloj.rawValue,
             "ipod": Products.iPhone.rawValue,
-            "mouse": Products.iPhone.rawValue
+            "mouse": Products.iPhone.rawValue,
+            "cellular telephone": Products.iPhone.rawValue
         ]
         
         return productsMap[trimmedProduct] ?? rawProduct
