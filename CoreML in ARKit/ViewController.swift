@@ -115,7 +115,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             let alert = UIAlertController(title: "Match", message: latestPrediction, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Asegurar", style: .default, handler: insure))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: insure))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: insure))
             present(alert, animated: true)
             // Create 3D Text
 //            let node : SCNNode = createNewBubbleParentNode(latestPrediction)
