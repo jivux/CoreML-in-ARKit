@@ -10,7 +10,13 @@ import UIKit
 import SceneKit
 import ARKit
 
+import LocalAuthentication
+
 import Vision
+
+enum Products: String {
+    case MacBook, Reloj, iPhone
+}
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
@@ -113,10 +119,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let transform : matrix_float4x4 = closestResult.worldTransform
 //            let worldCoord : SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
             
-            let alert = UIAlertController(title: "Match", message: latestPrediction, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Asegurar", style: .default, handler: insure))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: insure))
-            present(alert, animated: true)
+            let product = translateProduct(rawProduct: latestPrediction)
+            launchAlert(product: product)
+//            let alert = UIAlertController(title: "Match", message: product, preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "Asegurar", style: .default, handler: insure))
+//            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: cancelInsure))
+//            present(alert, animated: true)
             // Create 3D Text
 //            let node : SCNNode = createNewBubbleParentNode(latestPrediction)
 //            sceneView.scene.rootNode.addChildNode(node)
@@ -124,7 +132,74 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
+    func launchAlert(product: String) {
+        var message: String = "Match"
+        var actions: [UIAlertAction] = []
+        
+        switch product {
+        case Products.MacBook.rawValue:
+            message = "Parece una " + Products.MacBook.rawValue + ". ¿Qué modelo es?"
+            actions.append(UIAlertAction(title: "MacBook Pro", style: .default, handler: insure))
+            actions.append(UIAlertAction(title: "MacBook Air", style: .default, handler: insure))
+        case Products.iPhone.rawValue:
+            message = "Parece un " + Products.iPhone.rawValue + ". ¿Qué modelo es?"
+            actions.append(UIAlertAction(title: "iPhone 7", style: .default, handler: insure))
+            actions.append(UIAlertAction(title: "iPhone 6", style: .default, handler: insure))
+            actions.append(UIAlertAction(title: "iPhone 5", style: .default, handler: insure))
+        case Products.Reloj.rawValue:
+            message = "Parece un " + Products.Reloj.rawValue + ". ¿Qué modelo es?"
+            actions.append(UIAlertAction(title: "Pebble", style: .default, handler: insure))
+            actions.append(UIAlertAction(title: "Apple Watch", style: .default, handler: insure))
+            actions.append(UIAlertAction(title: "Android Watch", style: .default, handler: insure))
+        default:
+            message = "Parece " + product
+        }
+        
+        let alert = UIAlertController(title: "Match", message: message, preferredStyle: .actionSheet)
+        actions.forEach { action in
+            alert.addAction(action)
+        }
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: cancelInsure))
+        present(alert, animated: true)
+    }
+    
     func insure(action: UIAlertAction) -> Void {
+        authenticateWitTouchId(product: latestPrediction) {}
+    }
+    
+    func authenticateWitTouchId(product: String, onIdentify: @escaping () -> Void) {
+        var error: NSError?
+        let context = LAContext()
+        let policy = LAPolicy.deviceOwnerAuthenticationWithBiometrics
+        let canEvaluate = context.canEvaluatePolicy(policy, error: &error)
+        let reason = "¿Quieres asegurar tu " + product + "?"
+        
+        if (canEvaluate) {
+            [context.evaluatePolicy(policy, localizedReason: reason, reply: {(success: Bool, evalPolicyError: Error?) -> Void in
+                if (success) {
+                    onIdentify()
+                }
+            })]
+        }
+    }
+    
+    func cancelInsure(action: UIAlertAction) -> Void {}
+    
+    func translateProduct(rawProduct: String) -> String {
+        let trimmedProduct = rawProduct.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).lowercased()
+        let productsMap: [String: String] = [
+            "notebook": Products.MacBook.rawValue,
+            "desktop computer": Products.MacBook.rawValue,
+            "computer": Products.MacBook.rawValue,
+            "laptop": Products.MacBook.rawValue,
+            "monitor": Products.MacBook.rawValue,
+            "digital watch": Products.Reloj.rawValue,
+            "ipod": Products.iPhone.rawValue,
+            "mouse": Products.iPhone.rawValue
+        ]
+        
+        return productsMap[trimmedProduct] ?? rawProduct
     }
     
     func createNewBubbleParentNode(_ text : String) -> SCNNode {
