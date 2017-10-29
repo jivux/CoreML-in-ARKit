@@ -29,7 +29,7 @@ class Service {
 class ServiciosTableViewController: UITableViewController {
 
     var entries: [Service]?
-    let host = "http://309e0da5.ngrok.io"
+    let host = "http://34.213.119.67:8000"
    
     
     override func viewDidLoad() {
