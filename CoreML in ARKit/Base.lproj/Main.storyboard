@@ -9,22 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
-        <scene sceneID="uMu-Rc-ojZ">
-            <objects>
-                <viewController id="mAS-wA-0IN" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BFH-oV-Erd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="S9v-8s-mgK"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="cGl-sf-jJO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZY0-Uz-2F7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-324" y="607"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZCN-je-FBb">
             <objects>
@@ -36,14 +20,43 @@
                     </tabBar>
                     <connections>
                         <segue destination="BV1-FR-VrT" kind="relationship" relationship="viewControllers" id="lW9-k3-Q0R"/>
-                        <segue destination="mAS-wA-0IN" kind="relationship" relationship="viewControllers" id="TKG-MM-ris"/>
+                        <segue destination="yjf-29-MNa" kind="relationship" relationship="viewControllers" id="030-TN-tcq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Epn-Ts-4zd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1277" y="275"/>
         </scene>
-        <!--Item-->
+        <!--Servicios-->
+        <scene sceneID="HJ8-zG-uS5">
+            <objects>
+                <tableViewController id="yjf-29-MNa" customClass="ServiciosTableViewController" customModule="CoreML_in_ARKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="C0E-dU-jtg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="UqE-Jh-VAF">
+                                <rect key="frame" x="0.0" y="28" width="375" height="85"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UqE-Jh-VAF" id="66G-R5-R5a">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="84.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yjf-29-MNa" id="fp2-Ow-xJL"/>
+                            <outlet property="delegate" destination="yjf-29-MNa" id="eNT-me-lzP"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Servicios" id="b2P-zd-Zda"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="neG-9k-5UO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-247" y="664"/>
+        </scene>
+        <!--Asegurar Producto-->
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="CoreML_in_ARKit" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,7 +82,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W2V-Gj-Pwx"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="cv2-8g-YNj"/>
+                    <tabBarItem key="tabBarItem" title="Asegurar Producto" id="cv2-8g-YNj"/>
                     <connections>
                         <outlet property="sceneView" destination="XMs-gA-sya" id="uz8-4k-aSX"/>
                     </connections>

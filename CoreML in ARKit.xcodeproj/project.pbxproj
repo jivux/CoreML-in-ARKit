@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9292F3661FA64C6A0003E381 /* ServiciosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9292F3651FA64C6A0003E381 /* ServiciosTableViewController.swift */; };
+		9292F3691FA64CD00003E381 /* ServicioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9292F3671FA64CD00003E381 /* ServicioTableViewCell.swift */; };
+		9292F36A1FA64CD00003E381 /* ServicioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9292F3681FA64CD00003E381 /* ServicioTableViewCell.xib */; };
+		9292F3741FA64EEC0003E381 /* casa.png in Resources */ = {isa = PBXBuildFile; fileRef = 9292F36B1FA64EEB0003E381 /* casa.png */; };
+		9292F3751FA64EEC0003E381 /* tarjeta.png in Resources */ = {isa = PBXBuildFile; fileRef = 9292F36C1FA64EEB0003E381 /* tarjeta.png */; };
+		9292F3761FA64EEC0003E381 /* prestamo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9292F36D1FA64EEB0003E381 /* prestamo.png */; };
+		9292F3771FA64EEC0003E381 /* enviar.png in Resources */ = {isa = PBXBuildFile; fileRef = 9292F36E1FA64EEB0003E381 /* enviar.png */; };
+		9292F3781FA64EEC0003E381 /* auto.png in Resources */ = {isa = PBXBuildFile; fileRef = 9292F36F1FA64EEB0003E381 /* auto.png */; };
+		9292F3791FA64EEC0003E381 /* negocio.png in Resources */ = {isa = PBXBuildFile; fileRef = 9292F3701FA64EEB0003E381 /* negocio.png */; };
+		9292F37A1FA64EEC0003E381 /* viajar.png in Resources */ = {isa = PBXBuildFile; fileRef = 9292F3711FA64EEB0003E381 /* viajar.png */; };
+		9292F37B1FA64EEC0003E381 /* vida.png in Resources */ = {isa = PBXBuildFile; fileRef = 9292F3721FA64EEC0003E381 /* vida.png */; };
+		9292F37C1FA64EEC0003E381 /* seguro.png in Resources */ = {isa = PBXBuildFile; fileRef = 9292F3731FA64EEC0003E381 /* seguro.png */; };
 		AEC748F51F18C24700334D87 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AEC748F41F18C24700334D87 /* Inceptionv3.mlmodel */; };
 		AEEC85651F18B8C600D43B9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEC85641F18B8C600D43B9B /* AppDelegate.swift */; };
 		AEEC85671F18B8C600D43B9B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = AEEC85661F18B8C600D43B9B /* art.scnassets */; };
@@ -17,6 +29,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9292F3651FA64C6A0003E381 /* ServiciosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiciosTableViewController.swift; sourceTree = "<group>"; };
+		9292F3671FA64CD00003E381 /* ServicioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicioTableViewCell.swift; sourceTree = "<group>"; };
+		9292F3681FA64CD00003E381 /* ServicioTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServicioTableViewCell.xib; sourceTree = "<group>"; };
+		9292F36B1FA64EEB0003E381 /* casa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = casa.png; sourceTree = "<group>"; };
+		9292F36C1FA64EEB0003E381 /* tarjeta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tarjeta.png; sourceTree = "<group>"; };
+		9292F36D1FA64EEB0003E381 /* prestamo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prestamo.png; sourceTree = "<group>"; };
+		9292F36E1FA64EEB0003E381 /* enviar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enviar.png; sourceTree = "<group>"; };
+		9292F36F1FA64EEB0003E381 /* auto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = auto.png; sourceTree = "<group>"; };
+		9292F3701FA64EEB0003E381 /* negocio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = negocio.png; sourceTree = "<group>"; };
+		9292F3711FA64EEB0003E381 /* viajar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = viajar.png; sourceTree = "<group>"; };
+		9292F3721FA64EEC0003E381 /* vida.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vida.png; sourceTree = "<group>"; };
+		9292F3731FA64EEC0003E381 /* seguro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seguro.png; sourceTree = "<group>"; };
 		AEC748F41F18C24700334D87 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = Inceptionv3.mlmodel; path = ../../Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		AEEC85611F18B8C600D43B9B /* CoreML in ARKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoreML in ARKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEEC85641F18B8C600D43B9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +90,18 @@
 				AEEC856F1F18B8C600D43B9B /* LaunchScreen.storyboard */,
 				AEEC85721F18B8C600D43B9B /* Info.plist */,
 				AEC748F41F18C24700334D87 /* Inceptionv3.mlmodel */,
+				9292F3651FA64C6A0003E381 /* ServiciosTableViewController.swift */,
+				9292F3671FA64CD00003E381 /* ServicioTableViewCell.swift */,
+				9292F3681FA64CD00003E381 /* ServicioTableViewCell.xib */,
+				9292F36F1FA64EEB0003E381 /* auto.png */,
+				9292F36B1FA64EEB0003E381 /* casa.png */,
+				9292F36E1FA64EEB0003E381 /* enviar.png */,
+				9292F3701FA64EEB0003E381 /* negocio.png */,
+				9292F36D1FA64EEB0003E381 /* prestamo.png */,
+				9292F3731FA64EEC0003E381 /* seguro.png */,
+				9292F36C1FA64EEB0003E381 /* tarjeta.png */,
+				9292F3711FA64EEB0003E381 /* viajar.png */,
+				9292F3721FA64EEC0003E381 /* vida.png */,
 			);
 			path = "CoreML in ARKit";
 			sourceTree = "<group>";
@@ -129,9 +165,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEEC85671F18B8C600D43B9B /* art.scnassets in Resources */,
+				9292F3771FA64EEC0003E381 /* enviar.png in Resources */,
+				9292F37C1FA64EEC0003E381 /* seguro.png in Resources */,
+				9292F3791FA64EEC0003E381 /* negocio.png in Resources */,
 				AEEC85711F18B8C600D43B9B /* LaunchScreen.storyboard in Resources */,
+				9292F3761FA64EEC0003E381 /* prestamo.png in Resources */,
+				9292F3751FA64EEC0003E381 /* tarjeta.png in Resources */,
+				9292F37B1FA64EEC0003E381 /* vida.png in Resources */,
+				9292F37A1FA64EEC0003E381 /* viajar.png in Resources */,
 				AEEC856E1F18B8C600D43B9B /* Assets.xcassets in Resources */,
+				9292F3781FA64EEC0003E381 /* auto.png in Resources */,
 				AEEC856C1F18B8C600D43B9B /* Main.storyboard in Resources */,
+				9292F36A1FA64CD00003E381 /* ServicioTableViewCell.xib in Resources */,
+				9292F3741FA64EEC0003E381 /* casa.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +191,8 @@
 				AEEC85691F18B8C600D43B9B /* ViewController.swift in Sources */,
 				AEC748F51F18C24700334D87 /* Inceptionv3.mlmodel in Sources */,
 				AEEC85651F18B8C600D43B9B /* AppDelegate.swift in Sources */,
+				9292F3661FA64C6A0003E381 /* ServiciosTableViewController.swift in Sources */,
+				9292F3691FA64CD00003E381 /* ServicioTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
