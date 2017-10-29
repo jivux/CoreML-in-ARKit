@@ -10,6 +10,8 @@ import UIKit
 import SceneKit
 import ARKit
 
+import LocalAuthentication
+
 import Vision
 
 class ViewController: UIViewController, ARSCNViewDelegate {
@@ -115,7 +117,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             let alert = UIAlertController(title: "Match", message: latestPrediction, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Asegurar", style: .default, handler: insure))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: insure))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: cancelInsure))
             present(alert, animated: true)
             // Create 3D Text
 //            let node : SCNNode = createNewBubbleParentNode(latestPrediction)
@@ -125,7 +127,26 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func insure(action: UIAlertAction) -> Void {
+        authenticateWitTouchId(product: latestPrediction) {}
     }
+    
+    func authenticateWitTouchId(product: String, onIdentify: @escaping () -> Void) {
+        var error: NSError?
+        let context = LAContext()
+        let policy = LAPolicy.deviceOwnerAuthenticationWithBiometrics
+        let canEvaluate = context.canEvaluatePolicy(policy, error: &error)
+        let reason = "¿Quieres asegurar tu " + product + "?"
+        
+        if (canEvaluate) {
+            [context.evaluatePolicy(policy, localizedReason: reason, reply: {(success: Bool, evalPolicyError: Error?) -> Void in
+                if (success) {
+                    onIdentify()
+                }
+            })]
+        }
+    }
+    
+    func cancelInsure(action: UIAlertAction) -> Void {}
     
     func createNewBubbleParentNode(_ text : String) -> SCNNode {
         // Warning: Creating 3D Text is susceptible to crashing. To reduce chances of crashing; reduce number of polygons, letters, smoothness, etc.
