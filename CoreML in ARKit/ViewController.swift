@@ -197,7 +197,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             "digital watch": Products.Reloj.rawValue,
             "ipod": Products.iPhone.rawValue,
             "mouse": Products.iPhone.rawValue,
-            "cellular telephone": Products.iPhone.rawValue
+            "cellular telephone": Products.iPhone.rawValue,
+            "keyboard": Products.MacBook.rawValue,
+            "computer keyboard": Products.MacBook.rawValue
         ]
         
         return productsMap[trimmedProduct] ?? rawProduct
