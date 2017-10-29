@@ -22,7 +22,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // COREML
     var visionRequests = [VNRequest]()
     let dispatchQueueML = DispatchQueue(label: "com.hw.dispatchqueueml") // A Serial Queue
-    @IBOutlet weak var debugTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,13 +111,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         if let closestResult = arHitTestResults.first {
             // Get Coordinates of HitTest
             let transform : matrix_float4x4 = closestResult.worldTransform
-            let worldCoord : SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
+//            let worldCoord : SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
             
+            let alert = UIAlertController(title: "Match", message: latestPrediction, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Asegurar", style: .default, handler: insure))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: insure))
+            present(alert, animated: true)
             // Create 3D Text
-            let node : SCNNode = createNewBubbleParentNode(latestPrediction)
-            sceneView.scene.rootNode.addChildNode(node)
-            node.position = worldCoord
+//            let node : SCNNode = createNewBubbleParentNode(latestPrediction)
+//            sceneView.scene.rootNode.addChildNode(node)
+//            node.position = worldCoord
         }
+    }
+    
+    func insure(action: UIAlertAction) -> Void {
     }
     
     func createNewBubbleParentNode(_ text : String) -> SCNNode {
@@ -199,11 +205,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             // Print Classifications
             print(classifications)
             print("--")
-            
-            // Display Debug Text on screen
-            var debugText:String = ""
-            debugText += classifications
-            self.debugTextView.text = debugText
             
             // Store the latest prediction
             var objectName:String = "…"
